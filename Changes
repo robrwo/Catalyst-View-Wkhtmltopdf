@@ -1,5 +1,9 @@
 Revision history for Perl extension Catalyst::View::Wkhtmltopdf.
 
+{{$NEXT}}
+  [Enhancements]
+    - Return a filehandle instead of the PDF contents
+
 0.5.2
     - Fixed error in documentation (default stash key was wrong)
 
