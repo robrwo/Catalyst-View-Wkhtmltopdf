@@ -13,6 +13,8 @@ Revision history for Perl extension Catalyst::View::Wkhtmltopdf.
 
     - Internal code improvements.
 
+    - The HTML is read as raw bytes.
+
   [Documentation]
     - Updated AUTHOR with maintainer.
 

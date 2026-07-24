@@ -110,7 +110,7 @@ sub render {
         SUFFIX  => '.html',
         UNLINK  => 1,
     );
-    binmode $htmlf, ':utf8';
+    binmode $htmlf, ':raw';
     my $htmlfn = $htmlf->filename;
     my $pdffn  = $htmlfn;
     $pdffn =~ s/\.html/.pdf/;

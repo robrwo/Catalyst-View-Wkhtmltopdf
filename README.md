@@ -72,6 +72,7 @@ Changes for version v0.6.0 (2026-07-24)
     - The command attribute was changed to use File::Which to guess the patch of wkhtmltopdf.
     - Added support for additional options. (See documentation)
     - Internal code improvements.
+    - The HTML is read as raw bytes.
 - Documentation
     - Updated AUTHOR with maintainer.
     - Added STATUS and SECURITY CONSIDERATIONS sections about wkhtmltopdf no longer being maintained.
