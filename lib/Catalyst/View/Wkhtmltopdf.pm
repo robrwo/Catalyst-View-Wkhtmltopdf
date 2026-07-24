@@ -374,7 +374,9 @@ L<https://github.com/lordarthas/Catalyst-View-Wkhtmltopdf>
 
 =head1 AUTHOR
 
-Michele Beltrame E<lt>arthas@cpan.orgE<gt>
+Michele Beltrame <mb@italpro.net>.
+
+This module is currently maintained by Robert Rothenberg <perl@rhizomnic.com>.
 
 =head1 CONTRIBUTORS
 
