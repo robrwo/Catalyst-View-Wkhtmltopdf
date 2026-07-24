@@ -171,6 +171,12 @@ __PACKAGE__->meta->make_immutable();
 
 __END__
 
+=begin :prelude
+
+=for stopwords QtWebKit epr fvia greyscale lowquality pdf tmpdir TT wkhtmltopdf
+
+=end :prelude
+
 =head1 SYNOPSIS
 
     # lib/MyApp/View/Wkhtmltopdf.pm
@@ -226,7 +232,7 @@ See L</SECURITY CONSIDERATIONS>.
 
 C<Catalyst::View::Wkhtmltopdf> is a L<Catalyst> view handler that
 converts HTML data to PDF using C<wkhtmltopdf>.
-It can also handle direct conversion of TT templates (via L<Catalyst::View::TT>).
+It can also handle direct conversion of L<Template-Toolkit|Template> templates via L<Catalyst::View::TT>.
 
 =head1 CONFIG VARIABLES
 
@@ -263,27 +269,27 @@ See wkhtmltopdf documentation for more information.
 
 =item disposition
 
-Default: I<inline>.
+Default: C<inline>.
 
 The I<content-disposition> to set when sending the PDF file to the
 client. Can be either I<inline> or (default) I<attachment>.
 
 =item filename
 
-Default: I<output.pdf>.
+Default: F<output.pdf>.
 
 The filename to send to the client.
 
 =item page_size
 
-Default: I<A4>.
+Default: C<A4>.
 
 Page size option.
 See wkhtmltopdf documentation for more information.
 
 =item orientation
 
-Default: I<portrait>.
+Default: C<portrait>.
 
 Orientation option.
 See wkhtmltopdf documentation for more information.
@@ -350,14 +356,10 @@ Have a look at wkhtmltopdf documentation for more information regarding these op
 
 Other options can be added to the L</command>.
 
-=head1 METHODS
+=method process
 
-=over 4
-
-=item process()
-
-Generated the PDF as epr parameters in $c->stash->{wkhtmltopdf} or other
-configured stash key. Calls C<render()> to perform actual rendering.
+Generated the PDF as epr parameters in `$c->stash->{wkhtmltopdf}` or other
+configured stash key. Calls L</render> to perform actual rendering.
 Output is stored in C<$c->response->body>.
 
 It is possible to forward to the process method of the view from inside
@@ -367,7 +369,7 @@ L<Catalyst>:
 
 However, this is usually done automatically by L<Catalyst::Action::RenderView>.
 
-=item render($c, \%args)
+=method render
 
 Generates a PDF from the arguments in I<\%args> and returns it.
 Arguments are the same one would place in the stash key for
@@ -377,10 +379,8 @@ only apply when outputting the content to the client).
 
 You can pass a I<template_args> key inside the arguments
 hashref, which will be passed to L<Catalyst::View::TT>'s
-C<render()> method. If not supplied, undef will be passed,
+C<render> method. If not supplied, undef will be passed,
 so the TT view method will behave as per its documentation.
-
-=back
 
 =head1 SECURITY CONSIDERATIONS
 

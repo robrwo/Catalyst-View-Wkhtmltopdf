@@ -59,7 +59,7 @@ sub ciao : Local {
 
 `Catalyst::View::Wkhtmltopdf` is a [Catalyst](https://metacpan.org/pod/Catalyst) view handler that
 converts HTML data to PDF using `wkhtmltopdf`.
-It can also handle direct conversion of TT templates (via [Catalyst::View::TT](https://metacpan.org/pod/Catalyst%3A%3AView%3A%3ATT)).
+It can also handle direct conversion of [Template-Toolkit](https://metacpan.org/pod/Template) templates via [Catalyst::View::TT](https://metacpan.org/pod/Catalyst%3A%3AView%3A%3ATT).
 
 # RECENT CHANGES
 
