@@ -372,6 +372,6 @@ it under the same terms as Perl itself.
 
 L<Catalyst>, L<Catalyst::View::TT>
 
-L<http://code.google.com/p/wkhtmltopdf/>
+L<https://wkhtmltopdf.org>
 
 =cut
