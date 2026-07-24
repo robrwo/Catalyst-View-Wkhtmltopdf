@@ -131,19 +131,29 @@ sub render {
         push @args, '--allow', $allow;
     }
 
-    for my $name ( qw( margin_top margin_left margin_bottom margin_right ) ) {
+    for my $name ( qw( margin_top margin_left margin_bottom margin_right dpi image_dpi image_quality title ) ) {
         my $arg = $args->{$name};
         next unless defined $arg;
-        $name =~ s/_/-/g;
-        push @args, "--${name}", $arg;
+        my $param = $name;
+        $param =~ s/_/-/g;
+        push @args, "--${param}", $arg;
+    }
+
+    for my $name ( qw( greyscale lowquality quiet no_background no_images disable_javascript print_media_type ) ) {
+        my $arg = $args->{$name} or next;
+        my $param = $name;
+        $param =~ s/_/-/g;
+        push @args, "--${param}";
     }
 
     push @args, $htmlfn, $pdffn;
 
     my $input = join(" ", @args);
 
+    my @cmd = split /\s+/, $self->command;
+
     my %opt = map +( "binmode_std$_" => ":raw" ), "in", "out", "err";
-    run3 [ $self->command, '--read-args-from-stdin' ], \ $input, \my $output, \my $err, \%opt;
+    run3 [ @cmd, '--read-args-from-stdin' ], \ $input, \my $output, \my $err, \%opt;
 
     $c->log->debug($err) if $err;
 
@@ -297,18 +307,49 @@ Other options currently supported are:
 
 =over 4
 
-=item page-width, page-height
+=item page_width
+
+=item page_height
 
 Width and height of the page, overrides I<page_size>.
 
-=item margin-top, margin-right, margin-bottom, margin-left
+=item margin_top
+
+=item margin_right
+
+=item margin_ bottom
+
+=item margin_left
 
 Margins, specified as I<3mm>, I<0.7in>, ...
 
+=item dpi
+
+=item image_dpi
+
+=item image_quality
+
+=item title
+
+=item greyscale
+
+=item lowquality
+
+=item quiet
+
+=item no_background
+
+=item no_images
+
+=item disable_javascript
+
+=item print_media_type
+
 =back
 
-Have a look at I<wkhtmltopdf> documentation for more information
-regarding these options.
+Have a look at wkhtmltopdf documentation for more information regarding these options.
+
+Other options can be added to the L</command>.
 
 =head1 METHODS
 

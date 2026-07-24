@@ -9,6 +9,8 @@ Revision history for Perl extension Catalyst::View::Wkhtmltopdf.
 
     - The command attribute was changed to use File::Which to guess the patch of wkhtmltopdf.
 
+    - Added support for additional options. (See documentation)
+
   [Documentation]
     - Updated AUTHOR with maintainer.
 

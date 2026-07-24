@@ -11,7 +11,8 @@ sub base : Chained('/') PathPart('') Args(0) {
 
     $c->stash->{wk} = {
         template  => 'base.tt',
-        page_size => 'a4',
+        page_size => 'a5',
+        lowquality => 1,
     };
 
     $c->forward('View::Wkhtmltopdf');
