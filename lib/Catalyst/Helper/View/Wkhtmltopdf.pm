@@ -1,6 +1,9 @@
 package Catalyst::Helper::View::Wkhtmltopdf;
 
 use strict;
+use warnings;
+
+our $VERSION = 'v0.6.0';
 
 =head1 NAME
 
