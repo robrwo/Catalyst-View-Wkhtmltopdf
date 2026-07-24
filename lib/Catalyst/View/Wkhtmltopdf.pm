@@ -140,7 +140,7 @@ sub render {
     die "$! [likely can't find wkhtmltopdf command!]" if $output;
 
     # Read the output and return it
-    return IO::File::WithPath->new($pdffn);
+    return IO::File::WithPath->new( $pdffn, '<:raw' );
 }
 
 __PACKAGE__->meta->make_immutable();
