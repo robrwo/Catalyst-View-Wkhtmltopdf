@@ -2,12 +2,6 @@
 
 Catalyst::View::Wkhtmltopdf - Catalyst view to convert HTML (or TT) content to PDF using wkhtmltopdf
 
-# STATUS
-
-The wkhtmltopdf project is no longer being maintained, and this module will be deprecated in a later release.
-
-See ["SECURITY CONSIDERATIONS"](#security-considerations).
-
 # SYNOPSIS
 
 ```perl
@@ -55,6 +49,12 @@ sub ciao : Local {
 }
 ```
 
+# STATUS
+
+The wkhtmltopdf project is no longer being maintained, and this module will be deprecated in a later release.
+
+See ["SECURITY CONSIDERATIONS"](#security-considerations).
+
 # DESCRIPTION
 
 `Catalyst::View::Wkhtmltopdf` is a [Catalyst](https://metacpan.org/pod/Catalyst) view handler that
@@ -63,25 +63,10 @@ It can also handle direct conversion of [Template-Toolkit](https://metacpan.org/
 
 # RECENT CHANGES
 
-Changes for version v0.6.0 (2026-07-24)
+Changes for version v0.6.1 (2026-07-24)
 
-- Security
-    - Fix potential shell command injection from arguments (CVE-2026-16766).
-- Enhancements
-    - Return a filehandle instead of the PDF contents
-    - The command attribute was changed to use File::Which to guess the patch of wkhtmltopdf.
-    - Added support for additional options. (See documentation)
-    - Internal code improvements.
-    - The HTML is read as raw bytes.
 - Documentation
-    - Updated AUTHOR with maintainer.
-    - Added STATUS and SECURITY CONSIDERATIONS sections about wkhtmltopdf no longer being maintained.
-    - Updated the link to the wkhtmltopdf project.
-    - Documented release dates in Changes.
-- Tests
-    - Added simple test.
-- Toolchain
-    - Revised Dist::Zilla configuration.
+    - Recorganised sections, and include the STATUS section in the README.
 
 See the `Changes` file for more details.
 
@@ -169,23 +154,11 @@ feature.
 If the bug you are reporting has security implications which make it inappropriate to send to a public issue tracker,
 then see `SECURITY.md` for instructions how to report security vulnerabilities.
 
-# SOURCE
-
-The development version is on github at [https://github.com/robrwo/Catalyst-View-Wkhtmltopdf](https://github.com/robrwo/Catalyst-View-Wkhtmltopdf)
-and may be cloned from [https://github.com/robrwo/Catalyst-View-Wkhtmltopdf.git](https://github.com/robrwo/Catalyst-View-Wkhtmltopdf.git)
-
-Note that the git repository has changed since version v0.6.0.
-
 # AUTHOR
 
 Michele Beltrame <mb@italpro.net>
 
 This module is currently maintained by Robert Rothenberg <perl@rhizomnic.com>.
-
-# CONTRIBUTORS
-
-- Jens Gassmann <jens.gassmann@atomix.de>
-- Robert Rothenberg <perl@rhizomnic.com>
 
 # COPYRIGHT AND LICENSE
 

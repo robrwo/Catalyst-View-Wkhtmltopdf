@@ -1,6 +1,8 @@
 Revision history for Perl extension Catalyst::View::Wkhtmltopdf.
 
 {{$NEXT}}
+  [Documentation]
+    - Recorganised sections, and include the STATUS section in the README.
 
 v0.6.0    2026-07-24 14:58:58+01:00 Europe/London
   [Security]
