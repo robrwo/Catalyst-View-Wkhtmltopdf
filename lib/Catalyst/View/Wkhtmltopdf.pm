@@ -9,6 +9,7 @@ our $VERSION = qv('0.6.0');
 use File::Temp;
 use URI::Escape;
 use File::Spec;
+use File::Which qw( which );
 use IO::File::WithPath;
 
 has 'stash_key' => (
@@ -27,7 +28,7 @@ has 'command' => (
     is      => 'rw',
     isa     => 'Str',
     lazy    => 1,
-    default => sub { '/usr/bin/wkhtmltopdf' }
+    default => sub { which('wkhtmltopdf') }
 );
 has 'tt_view' => (
     is      => 'rw',
