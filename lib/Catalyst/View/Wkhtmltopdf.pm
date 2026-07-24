@@ -4,7 +4,7 @@ use Moose;
 extends 'Catalyst::View';
 
 use version;
-our $VERSION = qv('0.5.2');
+our $VERSION = qv('0.6.0');
 
 use File::Temp;
 use URI::Escape;
