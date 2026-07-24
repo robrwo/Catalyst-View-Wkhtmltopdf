@@ -1,6 +1,9 @@
 Revision history for Perl extension Catalyst::View::Wkhtmltopdf.
 
 {{$NEXT}}
+  [Security]
+    - Fix potential shell command injection from arguments (CVE-2026-16766).
+
   [Enhancements]
     - Return a filehandle instead of the PDF contents
 

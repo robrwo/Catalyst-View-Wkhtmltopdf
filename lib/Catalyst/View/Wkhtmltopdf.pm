@@ -11,6 +11,7 @@ use URI::Escape;
 use File::Spec;
 use File::Which qw( which );
 use IO::File::WithPath;
+use IPC::Run3 qw( run3 );
 
 has 'stash_key' => (
     is      => 'rw',
@@ -98,17 +99,6 @@ sub render {
     }
     die 'Void-input' if !defined $html;
 
-    # Usual page size A4, but labels would need a smaller one so we leave it
-    my $page_size = '--page-size ' . ( $args->{page_size} || $self->page_size );
-
-    # Page Orientation
-    my $orientation = '--orientation ' . ( $args->{orientation} || $self->orientation );
-
-    # Custom page size will override the previous
-    if ( defined $args->{page_width} && defined $args->{page_height} ) {
-        $page_size = "--page-width $args->{page_width} --page-height $args->{page_height} ";
-    }
-
     # Create a temporary file
     use File::Temp;
     my $htmlf = File::Temp->new(
@@ -123,22 +113,39 @@ sub render {
 
     print $htmlf $html;
 
-    # Build wkhtmltopdf command line
-    my $hcmd = $self->command . ' ' . $page_size . ' ' . $orientation . " ";
-    $hcmd .= "--allow " . $self->tmpdir . " ";
+    my @args;
 
-    for my $allow ( @{ $self->allows } ) {
-        $hcmd .= '--allow ' . $allow . ' ';
+    if ( defined $args->{page_width} && defined $args->{page_height} ) {
+        # Custom page size overrides page_size
+        push @args, '--page-width', $args->{page_width},
+                   '--page-height', $args->{page_height};
     }
-    $hcmd .= "--margin-top $args->{margin_top} "       if exists $args->{margin_top};
-    $hcmd .= "--margin-left $args->{margin_left} "     if exists $args->{margin_left};
-    $hcmd .= "--margin-bottom $args->{margin_bottom} " if exists $args->{margin_bottom};
-    $hcmd .= "--margin-right $args->{margin_right} "   if exists $args->{margin_right};
-    $hcmd .= " $htmlfn $pdffn";
+    else {
+        # Usual page size A4, but labels would need a smaller one
+        push @args, '--page-size', ( $args->{page_size} || $self->page_size );
+    }
+    push @args, '--orientation', ( $args->{orientation} || $self->orientation );
 
-    # Create the PDF file
-    my $output = `$hcmd`;
-    die "$! [likely can't find wkhtmltopdf command!]" if $output;
+    push @args, '--allow', $self->tmpdir;
+    for my $allow ( @{ $self->allows } ) {
+        push @args, '--allow', $allow;
+    }
+
+    for my $name ( qw( margin_top margin_left margin_bottom margin_right ) ) {
+        my $arg = $args->{$name};
+        next unless defined $arg;
+        $name =~ s/_/-/g;
+        push @args, "--${name}", $arg;
+    }
+
+    push @args, $htmlfn, $pdffn;
+
+    my $input = join(" ", @args);
+
+    my %opt = map +( "binmode_std$_" => ":raw" ), "in", "out", "err";
+    run3 [ $self->command, '--read-args-from-stdin' ], \ $input, \my $output, \my $err, \%opt;
+
+    $c->log->debug($err) if $err;
 
     # Read the output and return it
     return IO::File::WithPath->new( $pdffn, '<:raw' );
