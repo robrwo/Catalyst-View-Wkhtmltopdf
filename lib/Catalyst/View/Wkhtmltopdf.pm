@@ -6,7 +6,7 @@ use Moose;
 extends 'Catalyst::View';
 
 use version 0.77;
-our $VERSION = 'v0.6.0';
+our $VERSION = 'v0.6.1';
 
 use File::Temp;
 use URI::Escape;
