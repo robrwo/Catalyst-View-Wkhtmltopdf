@@ -1,10 +1,12 @@
 package Catalyst::View::Wkhtmltopdf;
 use Moose;
 
+# ABSTRACT: Catalyst view to convert HTML (or TT) content to PDF using wkhtmltopdf
+
 extends 'Catalyst::View';
 
-use version;
-our $VERSION = qv('0.6.0');
+use version 0.77;
+our $VERSION = 'v0.6.0';
 
 use File::Temp;
 use URI::Escape;
@@ -167,10 +169,6 @@ __PACKAGE__->meta->make_immutable();
 
 __END__
 
-=head1 NAME
-
-Catalyst::View::Wkhtmltopdf - Catalyst view to convert HTML (or TT) content to PDF using wkhtmltopdf
-
 =head1 SYNOPSIS
 
     # lib/MyApp/View/Wkhtmltopdf.pm
@@ -224,10 +222,9 @@ See L</SECURITY CONSIDERATIONS>.
 
 =head1 DESCRIPTION
 
-I<Catalyst::View::Wkhtmltopdf> is a L<Catalyst> view handler that
-converts HTML data to PDF using wkhtmltopdf (which must be installed
-on your system). It can also handle direct conversion of TT templates
-(via L<Catalyst::View::TT>).
+C<Catalyst::View::Wkhtmltopdf> is a L<Catalyst> view handler that
+converts HTML data to PDF using C<wkhtmltopdf>.
+It can also handle direct conversion of TT templates (via L<Catalyst::View::TT>).
 
 =head1 CONFIG VARIABLES
 
@@ -383,27 +380,6 @@ so the TT view method will behave as per its documentation.
 
 =back
 
-=head1 CHARACTER ENCODING
-
-At present time this library just uses UTF-8, which means it should
-work in most circumstances. Patches are welcome for support of
-different character sets.
-
-=head1 REQUIREMENTS
-
-I<wkhtmltopdf> command should be available on your system.
-
-=head1 TODO
-
-More configuration options (all the ones which I<wkhtmltopdf>
-supports, likely) should be added. Also, we'll wanto to allow
-to override them all at runtime.
-
-We might want to use pipes (L<IPC::Open2>) instead of relying
-on temp files.
-
-And yes... we need to write tests!
-
 =head1 SECURITY CONSIDERATIONS
 
 B<Do not use wkhtmltopdf with untrusted HTML.>
@@ -415,30 +391,40 @@ The L<git repository|https://github.com/wkhtmltopdf/wkhtmltopdf> was archived as
 
 You should consider migrating to alternative solutions.
 
-=head1 CONTRIBUTE
-
-Project in on GitHub:
-
-L<https://github.com/lordarthas/Catalyst-View-Wkhtmltopdf>
-
-=head1 AUTHOR
-
-Michele Beltrame <mb@italpro.net>.
+=head1 append:AUTHOR
 
 This module is currently maintained by Robert Rothenberg <perl@rhizomnic.com>.
 
-=head1 CONTRIBUTORS
+=head1 append:SOURCE
 
-jegade
+Note that the git repository has changed since version v0.6.0.
 
-=head1 LICENSE
+=head1 prepend:SUPPORT
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+Only the latest version of this module will be supported.
+
+Future releases may only support Perl versions released in the last ten (10) years.
+
+=head1 append:SUPPORT
+
+=head2 Reporting Security Vulnerabilities
+
+If the bug you are reporting has security implications which make it inappropriate to send to a public issue tracker,
+then see F<SECURITY.md> for instructions how to report security vulnerabilities.
+
+=begin :readme
+
+=head1 prepend:REQUIREMENTS
+
+L<wkhtmltopdf|https://wkhtmltopdf.org> must be installed.
+
+=end :readme
 
 =head1 SEE ALSO
 
-L<Catalyst>, L<Catalyst::View::TT>
+L<Catalyst>
+
+L<Catalyst::View::TT>
 
 L<https://wkhtmltopdf.org>
 
