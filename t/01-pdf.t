@@ -1,0 +1,29 @@
+use strict;
+use warnings;
+
+use Test::More;
+
+use FindBin qw/ $Bin /;
+
+use File::Temp qw/ tempfile /;
+use HTTP::Request::Common;
+use HTTP::Status qw/ :constants /;
+
+use lib 't/lib';
+use Catalyst::Test 'App';
+
+my $res = request( GET '/' );
+
+is $res->code, HTTP_OK, 'status code';
+
+is $res->content_type, 'application/pdf', 'content_type';
+
+ok my $data = $res->decoded_content, 'decoded_content';
+
+# my ($fh, $name) = tempfile( 'test-XXXXXXXX', SUFFIX => '.pdf' );
+# print {$fh} $data;
+# close $fh;
+
+# note $name;
+
+done_testing;
