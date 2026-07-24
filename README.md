@@ -77,6 +77,7 @@ Changes for version v0.6.0 (2026-07-24)
     - Updated AUTHOR with maintainer.
     - Added STATUS and SECURITY CONSIDERATIONS sections about wkhtmltopdf no longer being maintained.
     - Updated the link to the wkhtmltopdf project.
+    - Documented release dates in Changes.
 - Tests
     - Added simple test.
 - Toolchain
