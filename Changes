@@ -11,6 +11,8 @@ Revision history for Perl extension Catalyst::View::Wkhtmltopdf.
 
     - Added support for additional options. (See documentation)
 
+    - Internal code improvements.
+
   [Documentation]
     - Updated AUTHOR with maintainer.
 

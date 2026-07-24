@@ -15,6 +15,8 @@ use File::Which qw( which );
 use IO::File::WithPath;
 use IPC::Run3 qw( run3 );
 
+use namespace::autoclean;
+
 has 'stash_key' => (
     is      => 'rw',
     isa     => 'Str',

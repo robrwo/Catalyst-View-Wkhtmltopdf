@@ -71,6 +71,7 @@ Changes for version v0.6.0 (2026-07-24)
     - Return a filehandle instead of the PDF contents
     - The command attribute was changed to use File::Which to guess the patch of wkhtmltopdf.
     - Added support for additional options. (See documentation)
+    - Internal code improvements.
 - Documentation
     - Updated AUTHOR with maintainer.
     - Added STATUS and SECURITY CONSIDERATIONS sections about wkhtmltopdf no longer being maintained.
@@ -97,6 +98,7 @@ This module lists the following modules as runtime dependencies:
 - [IPC::Run3](https://metacpan.org/pod/IPC%3A%3ARun3)
 - [Moose](https://metacpan.org/pod/Moose)
 - [URI::Escape](https://metacpan.org/pod/URI%3A%3AEscape)
+- [namespace::autoclean](https://metacpan.org/pod/namespace%3A%3Aautoclean)
 - [strict](https://metacpan.org/pod/strict)
 - [version](https://metacpan.org/pod/version) version 0.77 or later
 

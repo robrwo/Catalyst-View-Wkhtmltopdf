@@ -10,6 +10,7 @@ requires "IO::File::WithPath" => "0";
 requires "IPC::Run3" => "0";
 requires "Moose" => "0";
 requires "URI::Escape" => "0";
+requires "namespace::autoclean" => "0";
 requires "strict" => "0";
 requires "version" => "0.77";
 
@@ -34,7 +35,6 @@ on 'test' => sub {
   requires "Test::Log::Dispatch" => "0";
   requires "Test::More" => "0";
   requires "lib" => "0";
-  requires "namespace::autoclean" => "0";
   requires "warnings" => "0";
 };
 
