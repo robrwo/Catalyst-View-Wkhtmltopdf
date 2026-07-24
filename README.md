@@ -67,6 +67,8 @@ Changes for version v0.6.1 (2026-07-24)
 
 - Documentation
     - Recorganised sections, and include the STATUS section in the README.
+- Tests
+    - Tests are skipped when wkhtmltopdf is not in the path.
 
 See the `Changes` file for more details.
 

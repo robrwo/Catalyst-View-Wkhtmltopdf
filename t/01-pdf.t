@@ -7,11 +7,16 @@ use Test::Deep;
 use FindBin qw/ $Bin /;
 
 use File::Temp qw/ tempfile /;
+use File::Which qw/ which /;
 use HTTP::Request::Common;
 use HTTP::Status qw/ :constants /;
 
 use lib 't/lib';
 use Catalyst::Test 'App';
+
+unless (which "wkhtmltopdf") {
+    plan skip_all => "wkhtmltopdf is required";
+}
 
 my ($res, $c) = ctx_request( GET '/' );
 
