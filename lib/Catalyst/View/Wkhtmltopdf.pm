@@ -198,6 +198,12 @@ Catalyst::View::Wkhtmltopdf - Catalyst view to convert HTML (or TT) content to P
         $c->forward('View::Wkhtmltopdf');
     }
 
+=head1 STATUS
+
+The wkhtmltopdf project is no longer being maintained, and this module will be deprecated in a later release.
+
+See L</SECURITY CONSIDERATIONS>.
+
 =head1 DESCRIPTION
 
 I<Catalyst::View::Wkhtmltopdf> is a L<Catalyst> view handler that
@@ -348,6 +354,17 @@ We might want to use pipes (L<IPC::Open2>) instead of relying
 on temp files.
 
 And yes... we need to write tests!
+
+=head1 SECURITY CONSIDERATIONS
+
+B<Do not use wkhtmltopdf with untrusted HTML.>
+
+The wkhtmltopdf project L<is no longer being maintained|https://wkhtmltopdf.org/status.html>,
+and the underlying QtWebKit libraries that it uses have been unsupported since 2015.
+
+The L<git repository|https://github.com/wkhtmltopdf/wkhtmltopdf> was archived as read-only in 2023.
+
+You should consider migrating to alternative solutions.
 
 =head1 CONTRIBUTE
 
