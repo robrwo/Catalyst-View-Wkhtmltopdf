@@ -84,11 +84,11 @@ sub process {
 
 sub render {
     my ( $self, $c, $args ) = @_;
-    
+
     # Arguments for TT view - if not defined those will be the stash
     # as per C::V::TT documentation
     if (!$args->{template_args}) { $args->{template_args} = undef }
-    
+
     my $html;
     if ( defined $args->{template} ) {
         $html = $c->view( $self->tt_view )->render( $c, $args->{template} ) or die;
@@ -161,7 +161,7 @@ Catalyst::View::Wkhtmltopdf - Catalyst view to convert HTML (or TT) content to P
     extends qw/Catalyst::View::Wkhtmltopdf/;
     __PACKAGE__->meta->make_immutable();
     1;
-    
+
     # configure in lib/MyApp.pm
     MyApp->config({
       ...
@@ -173,15 +173,15 @@ Catalyst::View::Wkhtmltopdf - Catalyst view to convert HTML (or TT) content to P
           tt_view   => 'Template',
       },
     });
-    
+
     sub ciao : Local {
         my($self, $c) = @_;
-        
+
         # Pass some HTML...
         $c->stash->{wk} = {
             html    => $web_page,
         };
-        
+
         # ..or a TT template
         $c->stash->{wk} = {
             template    => 'hello.tt',
@@ -194,7 +194,7 @@ Catalyst::View::Wkhtmltopdf - Catalyst view to convert HTML (or TT) content to P
             disposition => 'attachment',
             filename    => 'mydocument.pdf',
         };
-        
+
         $c->forward('View::Wkhtmltopdf');
     }
 
