@@ -103,6 +103,7 @@ This module lists the following modules as runtime dependencies:
 - [namespace::autoclean](https://metacpan.org/pod/namespace%3A%3Aautoclean)
 - [strict](https://metacpan.org/pod/strict)
 - [version](https://metacpan.org/pod/version) version 0.77 or later
+- [warnings](https://metacpan.org/pod/warnings)
 
 See the `cpanfile` file for the full list of prerequisites.
 

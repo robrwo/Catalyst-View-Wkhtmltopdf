@@ -13,6 +13,7 @@ requires "URI::Escape" => "0";
 requires "namespace::autoclean" => "0";
 requires "strict" => "0";
 requires "version" => "0.77";
+requires "warnings" => "0";
 
 on 'build' => sub {
   recommends "ExtUtils::MakeMaker" => "7.22";
@@ -35,7 +36,6 @@ on 'test' => sub {
   requires "Test::Log::Dispatch" => "0";
   requires "Test::More" => "0";
   requires "lib" => "0";
-  requires "warnings" => "0";
 };
 
 on 'test' => sub {
@@ -74,12 +74,10 @@ on 'develop' => sub {
   requires "Test::Perl::Critic" => "0";
   requires "Test::Pod" => "1.41";
   requires "Test::Pod::Coverage" => "1.08";
-  requires "Test::Pod::LinkCheck" => "0";
   requires "Test::Portability::Files" => "0";
   requires "Test::Spelling" => "0.17";
   requires "Test::TrailingSpace" => "0.0203";
   requires "Test::Vars" => "0.015";
   requires "Test::Version" => "1";
   requires "perl" => "v5.14.0";
-  requires "warnings" => "0";
 };
