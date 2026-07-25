@@ -65,6 +65,8 @@ It can also handle direct conversion of [Template-Toolkit](https://metacpan.org/
 
 Changes for version v0.6.1 (2026-07-25)
 
+- Security
+    - Improved validation and sanitization of arguments.
 - Documentation
     - Recorganised sections, and include the STATUS section in the README.
     - Updated SECURITY CONSIDERATIONS.
@@ -80,6 +82,7 @@ See the `Changes` file for more details.
 
 This module lists the following modules as runtime dependencies:
 
+- [B](https://metacpan.org/pod/B)
 - [Catalyst::View](https://metacpan.org/pod/Catalyst%3A%3AView)
 - [Catalyst::View::TT](https://metacpan.org/pod/Catalyst%3A%3AView%3A%3ATT)
 - [File::Spec](https://metacpan.org/pod/File%3A%3ASpec)

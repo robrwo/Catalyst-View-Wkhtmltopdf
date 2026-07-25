@@ -8,6 +8,7 @@ extends 'Catalyst::View';
 use version 0.77;
 our $VERSION = 'v0.6.1';
 
+use B;
 use File::Temp;
 use URI::Escape;
 use File::Spec;
@@ -138,9 +139,10 @@ sub render {
     for my $name ( qw( margin_top margin_left margin_bottom margin_right dpi image_dpi image_quality title ) ) {
         my $arg = $args->{$name};
         next unless defined $arg;
+        die "${name} cannot contain newlines or control characters" if $arg =~ /[\N{U+00}-\N{U+1f}\#\|;\&]/;
         my $param = $name;
         $param =~ s/_/-/g;
-        push @args, "--${param}", $arg;
+        push @args, "--${param}", B::perlstring($arg)
     }
 
     for my $name ( qw( greyscale lowquality quiet no_background no_images disable_javascript print_media_type ) ) {
