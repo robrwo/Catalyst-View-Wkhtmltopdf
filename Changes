@@ -2,7 +2,7 @@ Revision history for Perl extension Catalyst::View::Wkhtmltopdf.
 
 {{$NEXT}}
   [Security]
-    - Improved validation and sanitization of arguments.
+    - Improved validation and sanitization of arguments, as the fix for CVE-2026-16766 was incomplete.
 
   [Documentation]
     - Recorganised sections, and include the STATUS section in the README.

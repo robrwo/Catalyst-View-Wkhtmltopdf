@@ -66,7 +66,7 @@ It can also handle direct conversion of [Template-Toolkit](https://metacpan.org/
 Changes for version v0.6.1 (2026-07-25)
 
 - Security
-    - Improved validation and sanitization of arguments.
+    - Improved validation and sanitization of arguments, as the fix for CVE-2026-16766 was incomplete.
 - Documentation
     - Recorganised sections, and include the STATUS section in the README.
     - Updated SECURITY CONSIDERATIONS.
