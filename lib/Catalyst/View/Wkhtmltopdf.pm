@@ -393,6 +393,11 @@ The L<git repository|https://github.com/wkhtmltopdf/wkhtmltopdf> was archived as
 
 You should consider migrating to alternative solutions.
 
+It is assumed that the L</command> attribute is configured by a trusted source (developer or operator).
+
+The options are sent to wkhtmltopdf via stdin, using the C<--read-args-from-stdin> option.
+However, any options configured through the web application should be considered untrusted and validated.
+
 =head1 append:AUTHOR
 
 This module is currently maintained by Robert Rothenberg <perl@rhizomnic.com>.

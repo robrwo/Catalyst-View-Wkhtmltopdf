@@ -4,6 +4,8 @@ Revision history for Perl extension Catalyst::View::Wkhtmltopdf.
   [Documentation]
     - Recorganised sections, and include the STATUS section in the README.
 
+    - Updated SECURITY CONSIDERATIONS.
+
   [Tests]
     - Tests are skipped when wkhtmltopdf is not in the path.
 

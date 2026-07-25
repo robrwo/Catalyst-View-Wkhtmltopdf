@@ -63,10 +63,11 @@ It can also handle direct conversion of [Template-Toolkit](https://metacpan.org/
 
 # RECENT CHANGES
 
-Changes for version v0.6.1 (2026-07-24)
+Changes for version v0.6.1 (2026-07-25)
 
 - Documentation
     - Recorganised sections, and include the STATUS section in the README.
+    - Updated SECURITY CONSIDERATIONS.
 - Tests
     - Tests are skipped when wkhtmltopdf is not in the path.
 
@@ -137,6 +138,11 @@ and the underlying QtWebKit libraries that it uses have been unsupported since 2
 The [git repository](https://github.com/wkhtmltopdf/wkhtmltopdf) was archived as read-only in 2023.
 
 You should consider migrating to alternative solutions.
+
+It is assumed that the ["command"](#command) attribute is configured by a trusted source (developer or operator).
+
+The options are sent to wkhtmltopdf via stdin, using the `--read-args-from-stdin` option.
+However, any options configured through the web application should be considered untrusted and validated.
 
 # SUPPORT
 
