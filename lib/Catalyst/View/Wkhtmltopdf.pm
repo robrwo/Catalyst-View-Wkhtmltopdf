@@ -122,18 +122,18 @@ sub render {
 
     if ( defined $args->{page_width} && defined $args->{page_height} ) {
         # Custom page size overrides page_size
-        push @args, '--page-width', $args->{page_width},
-                   '--page-height', $args->{page_height};
+        push @args, '--page-width', B::perlstring( $args->{page_width} ),
+                    '--page-height', B::perlstring( $args->{page_height} );
     }
     else {
         # Usual page size A4, but labels would need a smaller one
-        push @args, '--page-size', ( $args->{page_size} || $self->page_size );
+        push @args, '--page-size', B::perlstring( $args->{page_size} || $self->page_size );
     }
-    push @args, '--orientation', ( $args->{orientation} || $self->orientation );
+    push @args, '--orientation', B::perlstring( $args->{orientation} || $self->orientation );
 
-    push @args, '--allow', $self->tmpdir;
+    push @args, '--allow', B::perlstring( $self->tmpdir );
     for my $allow ( @{ $self->allows } ) {
-        push @args, '--allow', $allow;
+        push @args, '--allow', B::perlstring($allow);
     }
 
     for my $name ( qw( margin_top margin_left margin_bottom margin_right dpi image_dpi image_quality title ) ) {
