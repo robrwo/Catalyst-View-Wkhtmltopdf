@@ -71,6 +71,7 @@ Changes for version v0.6.1 (2026-07-25)
     - Recorganised sections, and include the STATUS section in the README.
     - Updated SECURITY CONSIDERATIONS.
     - Updated the documentation for Pod::Weaver.
+    - Fixed typos.
 - Tests
     - Tests are skipped when wkhtmltopdf is not in the path.
 

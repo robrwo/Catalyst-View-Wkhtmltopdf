@@ -11,6 +11,8 @@ Revision history for Perl extension Catalyst::View::Wkhtmltopdf.
 
     - Updated the documentation for Pod::Weaver.
 
+    - Fixed typos.
+
   [Tests]
     - Tests are skipped when wkhtmltopdf is not in the path.
 

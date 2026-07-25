@@ -175,7 +175,7 @@ __END__
 
 =begin :prelude
 
-=for stopwords QtWebKit epr fvia greyscale lowquality pdf tmpdir TT wkhtmltopdf
+=for stopwords QtWebKit epr greyscale lowquality pdf tmpdir TT wkhtmltopdf
 
 =end :prelude
 
@@ -296,7 +296,7 @@ See wkhtmltopdf documentation for more information.
 
 =head1 prepend:PARAMETERS
 
-Parameters are passed fvia the stash:
+Parameters are passed via the stash:
 
     $c->stash->{wkhtmltopdf} = {
         html    => $web_page,
