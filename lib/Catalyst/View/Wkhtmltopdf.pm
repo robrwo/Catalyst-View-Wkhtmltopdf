@@ -234,32 +234,30 @@ C<Catalyst::View::Wkhtmltopdf> is a L<Catalyst> view handler that
 converts HTML data to PDF using C<wkhtmltopdf>.
 It can also handle direct conversion of L<Template-Toolkit|Template> templates via L<Catalyst::View::TT>.
 
-=head1 CONFIG VARIABLES
+=head1 prepend:CONFIG VARIABLES
 
 All configuration parameters are optional as they have a default.
 
-=over 4
-
-=item stash_key
+=attr stash_key
 
 The stash key which contains data and optional runtime configuration
-to pass to the view. Default is I<wk>.
+to pass to the view. Default is C<wk>.
 
-=item tmpdir
+=attr tmpdir
 
 Default: guessed via C<File::Spec::tmpdir()>.
 
 Name of URI parameter to specify JSON callback function name. Defaults
 to C<callback>. Only effective when C<allow_callback> is turned on.
 
-=item command
+=attr command
 
 Default: C</usr/bin/wkhtmltopdf>.
 
 The full path and filename to the wkhtmltopdf command. Defaults to
 I</usr/bin/wkhtmltopdf>.
 
-=item allows
+=attr allows
 
 Default: the temporary directory.
 
@@ -267,36 +265,34 @@ An arrayref of allowed paths where wkhtmltopdf can find images and
 other linked content. The temporary directory is added by default.
 See wkhtmltopdf documentation for more information.
 
-=item disposition
+=attr disposition
 
 Default: C<inline>.
 
 The I<content-disposition> to set when sending the PDF file to the
 client. Can be either I<inline> or (default) I<attachment>.
 
-=item filename
+=attr filename
 
 Default: F<output.pdf>.
 
 The filename to send to the client.
 
-=item page_size
+=attr page_size
 
 Default: C<A4>.
 
 Page size option.
 See wkhtmltopdf documentation for more information.
 
-=item orientation
+=attr orientation
 
 Default: C<portrait>.
 
 Orientation option.
 See wkhtmltopdf documentation for more information.
 
-=back
-
-=head1 PARAMETERS
+=head1 prepend:PARAMETERS
 
 Parameters are passed fvia the stash:
 
@@ -308,49 +304,45 @@ You can pass the following configuration options here, which will
 override the global configuration: I<disposition>, I<filename>,
 I<page_size>.
 
-Other options currently supported are:
+=param page_width
 
-=over 4
-
-=item page_width
-
-=item page_height
+=param page_height
 
 Width and height of the page, overrides I<page_size>.
 
-=item margin_top
+=param margin_top
 
-=item margin_right
+=param margin_right
 
-=item margin_ bottom
+=param margin_ bottom
 
-=item margin_left
+=param margin_left
 
 Margins, specified as I<3mm>, I<0.7in>, ...
 
-=item dpi
+=param dpi
 
-=item image_dpi
+=param image_dpi
 
-=item image_quality
+=param image_quality
 
-=item title
+=param title
 
-=item greyscale
+=param greyscale
 
-=item lowquality
+=param lowquality
 
-=item quiet
+=param quiet
 
-=item no_background
+=param no_background
 
-=item no_images
+=param no_images
 
-=item disable_javascript
+=param disable_javascript
 
-=item print_media_type
+=param print_media_type
 
-=back
+=head1 append:PARAMETERS
 
 Have a look at wkhtmltopdf documentation for more information regarding these options.
 
