@@ -67,6 +67,8 @@ Changes for version v0.6.2 (2026-07-27)
 
 - Documentation
     - Fixed POD for Catalyst::Helper::View::Wkhtmltopdf RT#180300
+    - Added subsections to the SECURITY CONSIDERATIONS.
+    - Documented temporary files not being cleaned up RT#180344.
 
 See the `Changes` file for more details.
 
@@ -128,6 +130,8 @@ For more information, see [How to install CPAN modules](https://www.cpan.org/mod
 
 # SECURITY CONSIDERATIONS
 
+## Status of the Wkhtmltopdf Project
+
 **Do not use wkhtmltopdf with untrusted HTML.**
 
 The wkhtmltopdf project [is no longer being maintained](https://wkhtmltopdf.org/status.html),
@@ -137,10 +141,21 @@ The [git repository](https://github.com/wkhtmltopdf/wkhtmltopdf) was archived as
 
 You should consider migrating to alternative solutions.
 
+## Options
+
 It is assumed that the ["command"](#command) attribute is configured by a trusted source (developer or operator).
 
 The options are sent to wkhtmltopdf via stdin, using the `--read-args-from-stdin` option.
 However, any options configured through the web application should be considered untrusted and validated.
+
+## Temporary Files
+
+Temporary HTML and PDF files are saved in ["tmpdir"](#tmpdir).
+They may be left in the directory on failure.
+
+When returning a filehandle instead of the PDF content (the default behaviour since v0.6.0), the PDF files are not removed.
+
+A separate process will need to purge files, to prevent them from filling the disk, as well as to remove sensitive information.
 
 # SUPPORT
 
