@@ -1,6 +1,8 @@
 Revision history for Perl extension Catalyst::View::Wkhtmltopdf.
 
 {{$NEXT}}
+  [Documentation]
+    - Fixed incorrect description for tmpdir.
 
 v0.6.2    2026-07-27 14:45:05+01:00 Europe/London
   [Documentation]

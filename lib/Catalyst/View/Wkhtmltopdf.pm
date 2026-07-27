@@ -249,8 +249,7 @@ to pass to the view. Default is C<wk>.
 
 Default: guessed via C<File::Spec::tmpdir()>.
 
-Name of URI parameter to specify JSON callback function name. Defaults
-to C<callback>. Only effective when C<allow_callback> is turned on.
+This is the temporary directory that HTML and PDF files are saved in.
 
 =attr command
 

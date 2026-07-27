@@ -63,12 +63,10 @@ It can also handle direct conversion of [Template-Toolkit](https://metacpan.org/
 
 # RECENT CHANGES
 
-Changes for version v0.6.2 (2026-07-27)
+Changes for version v0.6.3 (2026-07-27)
 
 - Documentation
-    - Fixed POD for Catalyst::Helper::View::Wkhtmltopdf RT#180300
-    - Added subsections to the SECURITY CONSIDERATIONS.
-    - Documented temporary files not being cleaned up RT#180344.
+    - Fixed incorrect description for tmpdir.
 
 See the `Changes` file for more details.
 
