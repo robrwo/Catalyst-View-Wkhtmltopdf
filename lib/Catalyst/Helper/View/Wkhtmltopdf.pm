@@ -3,7 +3,7 @@ package Catalyst::Helper::View::Wkhtmltopdf;
 use strict;
 use warnings;
 
-our $VERSION = 'v0.6.3';
+our $VERSION = 'v0.6.4';
 
 =head1 SYNOPSIS
 
