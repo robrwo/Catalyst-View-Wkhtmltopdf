@@ -375,6 +375,14 @@ hashref, which will be passed to L<Catalyst::View::TT>'s
 C<render> method. If not supplied, undef will be passed,
 so the TT view method will behave as per its documentation.
 
+=head1 KNOWN ISSUES
+
+Tempoarary files may not be purged in L</tmpdir>.
+See L</SECURITY CONSIDERATIONS>.
+
+The POD for L<Catalyst::Helper::View::Wkhtmltopdf> will include the helper template,
+due to POD processors including the C<DATA> section.
+
 =head1 SECURITY CONSIDERATIONS
 
 =head2 Status of the Wkhtmltopdf Project

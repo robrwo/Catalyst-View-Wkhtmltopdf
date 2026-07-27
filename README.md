@@ -67,6 +67,7 @@ Changes for version v0.6.3 (2026-07-27)
 
 - Documentation
     - Fixed incorrect description for tmpdir.
+    - Added KNOWN ISSUES.
 
 See the `Changes` file for more details.
 
