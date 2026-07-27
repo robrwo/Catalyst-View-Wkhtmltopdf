@@ -63,17 +63,10 @@ It can also handle direct conversion of [Template-Toolkit](https://metacpan.org/
 
 # RECENT CHANGES
 
-Changes for version v0.6.1 (2026-07-25)
+Changes for version v0.6.2 (2026-07-27)
 
-- Security
-    - Improved validation and sanitization of arguments, as the fix for CVE-2026-16766 was incomplete.
 - Documentation
-    - Recorganised sections, and include the STATUS section in the README.
-    - Updated SECURITY CONSIDERATIONS.
-    - Updated the documentation for Pod::Weaver.
-    - Fixed typos.
-- Tests
-    - Tests are skipped when wkhtmltopdf is not in the path.
+    - Fixed POD for Catalyst::Helper::View::Wkhtmltopdf RT#180300
 
 See the `Changes` file for more details.
 

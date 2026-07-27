@@ -1,6 +1,8 @@
 Revision history for Perl extension Catalyst::View::Wkhtmltopdf.
 
 {{$NEXT}}
+  [Documentation]
+    - Fixed POD for Catalyst::Helper::View::Wkhtmltopdf RT#180300
 
 v0.6.1    2026-07-25 09:14:21+01:00 Europe/London
   [Security]

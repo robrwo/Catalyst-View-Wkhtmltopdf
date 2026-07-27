@@ -5,10 +5,6 @@ use warnings;
 
 our $VERSION = 'v0.6.2';
 
-=head1 NAME
-
-Catalyst::Helper::View::Wkhtmltopdf - Helper for Wkhtmltopdf Views
-
 =head1 SYNOPSIS
 
     script/create.pl view Wkhtmltopdf Wkhtmltopdf
@@ -17,9 +13,7 @@ Catalyst::Helper::View::Wkhtmltopdf - Helper for Wkhtmltopdf Views
 
 Helper for Wkhtmltopdf Views.
 
-=head2 METHODS
-
-=head3 mk_compclass
+=method mk_compclass
 
 =cut
 
@@ -33,15 +27,6 @@ sub mk_compclass {
 
 L<Catalyst::Manual>, L<Catalyst::Test>, L<Catalyst::Request>,
 L<Catalyst::Response>, L<Catalyst::Helper>
-
-=head1 AUTHOR
-
-Michele Beltrame, C<mb@cattlegrid.info>
-
-=head1 LICENSE
-
-This library is free software . You can redistribute it and/or modify
-it under the same terms as perl itself.
 
 =cut
 
