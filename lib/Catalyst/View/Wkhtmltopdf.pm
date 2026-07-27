@@ -6,7 +6,7 @@ use Moose;
 extends 'Catalyst::View';
 
 use version 0.77;
-our $VERSION = 'v0.6.2';
+our $VERSION = 'v0.6.3';
 
 use B;
 use File::Temp;
