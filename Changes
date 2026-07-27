@@ -1,6 +1,10 @@
 Revision history for Perl extension Catalyst::View::Wkhtmltopdf.
 
 {{$NEXT}}
+  [Enhancements]
+    - Added the send_filehandle option, which enables returning a filehandle rather than the PDF.
+      It defaults to false, which reverts the behavior back to pre-v0.6.0.
+
   [Documentation]
     - Fixed incorrect description for tmpdir.
 

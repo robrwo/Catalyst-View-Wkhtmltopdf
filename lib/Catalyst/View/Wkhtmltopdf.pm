@@ -118,6 +118,8 @@ sub render {
 
     print $htmlf $html;
 
+    my $send_filehandle = delete $args->{send_filehandle};
+
     my @args;
 
     if ( defined $args->{page_width} && defined $args->{page_height} ) {
@@ -163,8 +165,15 @@ sub render {
 
     $c->log->debug($err) if $err;
 
-    # Read the output and return it
-    return IO::File::WithPath->new( $pdffn, '<:raw' );
+    if ( $send_filehandle ) {
+        return IO::File::WithPath->new( $pdffn, '<:raw' );
+    }
+    else {
+        my $pdffc      = Path::Class::File->new($pdffn);
+        my $pdfcontent = $pdffc->slurp();
+        $pdffc->remove();
+        return $pdfcontent;
+    }
 }
 
 __PACKAGE__->meta->make_immutable();
@@ -175,7 +184,7 @@ __END__
 
 =begin :prelude
 
-=for stopwords QtWebKit epr greyscale lowquality pdf tmpdir TT wkhtmltopdf
+=for stopwords QtWebKit epr greyscale lowquality pdf tmpdir TT wkhtmltopdf Sendfile
 
 =end :prelude
 
@@ -305,6 +314,17 @@ You can pass the following configuration options here, which will
 override the global configuration: I<disposition>, I<filename>,
 I<page_size>.
 
+=param send_filehandle
+
+When true, this will return a result by filehandle.
+
+This is preferable when the PDF files are larger or when X-Sendfile extensions are enabled for the webserver.
+However, the PDF files will not be removed automatically after they are sent.
+
+It defaults to false. In versions v0.6.0 through v0.6.2 this was the default behavior.
+
+Added in v0.6.3.
+
 =param page_width
 
 =param page_height
@@ -377,7 +397,7 @@ so the TT view method will behave as per its documentation.
 
 =head1 KNOWN ISSUES
 
-Tempoarary files may not be purged in L</tmpdir>.
+Temporary files may not be purged in L</tmpdir>.
 See L</SECURITY CONSIDERATIONS>.
 
 The POD for L<Catalyst::Helper::View::Wkhtmltopdf> will include the helper template,
@@ -408,7 +428,7 @@ However, any options configured through the web application should be considered
 Temporary HTML and PDF files are saved in L</tmpdir>.
 They may be left in the directory on failure.
 
-When returning a filehandle instead of the PDF content (the default behaviour since v0.6.0), the PDF files are not removed.
+When returning a filehandle instead of the PDF content, the PDF files are not removed when L</send_filehandle> is true.
 
 A separate process will need to purge files, to prevent them from filling the disk, as well as to remove sensitive information.
 

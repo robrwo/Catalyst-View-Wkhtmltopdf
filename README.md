@@ -65,6 +65,8 @@ It can also handle direct conversion of [Template-Toolkit](https://metacpan.org/
 
 Changes for version v0.6.3 (2026-07-27)
 
+- Enhancements
+    - Added the send\_filehandle option, which enables returning a filehandle rather than the PDF. It defaults to false, which reverts the behavior back to pre-v0.6.0.
 - Documentation
     - Fixed incorrect description for tmpdir.
     - Added KNOWN ISSUES.
@@ -152,7 +154,7 @@ However, any options configured through the web application should be considered
 Temporary HTML and PDF files are saved in ["tmpdir"](#tmpdir).
 They may be left in the directory on failure.
 
-When returning a filehandle instead of the PDF content (the default behaviour since v0.6.0), the PDF files are not removed.
+When returning a filehandle instead of the PDF content, the PDF files are not removed when ["send\_filehandle"](#send_filehandle) is true.
 
 A separate process will need to purge files, to prevent them from filling the disk, as well as to remove sensitive information.
 
