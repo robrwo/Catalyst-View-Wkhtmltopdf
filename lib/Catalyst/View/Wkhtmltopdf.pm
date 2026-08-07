@@ -237,6 +237,8 @@ __END__
 
 The wkhtmltopdf project is no longer being maintained, and this module will be deprecated in a later release.
 
+Consider migrating to L<Catalyst::View::ChromePDF>.
+
 See L</SECURITY CONSIDERATIONS>.
 
 =head1 DESCRIPTION

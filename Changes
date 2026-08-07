@@ -1,6 +1,8 @@
 Revision history for Perl extension Catalyst::View::Wkhtmltopdf.
 
 {{$NEXT}}
+  [Documentation]
+    - Mention Catalyst::View::ChromePDF as an alternative in the STATUS.
 
 v0.6.3    2026-07-27 15:21:38+01:00 Europe/London
   [Enhancements]
