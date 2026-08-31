@@ -65,10 +65,11 @@ It can also handle direct conversion of [Template-Toolkit](https://metacpan.org/
 
 # RECENT CHANGES
 
-Changes for version v0.6.4 (2026-08-07)
+Changes for version v0.6.4 (2026-08-31)
 
 - Documentation
     - Mention Catalyst::View::ChromePDF as an alternative in the STATUS.
+    - Added AI\_POLICY.md
 
 See the `Changes` file for more details.
 
