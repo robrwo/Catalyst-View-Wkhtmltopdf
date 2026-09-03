@@ -235,7 +235,7 @@ __END__
 
 =head1 STATUS
 
-The wkhtmltopdf project is no longer being maintained, and this module will be deprecated in a later release.
+The wkhtmltopdf project is no longer being maintained, and this module has been deprecated.
 
 Consider migrating to L<Catalyst::View::ChromePDF>.
 
@@ -444,9 +444,7 @@ Note that the git repository has changed since version v0.6.0.
 
 =head1 prepend:SUPPORT
 
-Only the latest version of this module will be supported.
-
-Future releases may only support Perl versions released in the last ten (10) years.
+This module is deprecated.  There may not be future releases.
 
 =head1 append:SUPPORT
 
